@@ -1,0 +1,36 @@
+schema-version: 1
+name: differentiation
+setup:
+  variables:
+    x: symbol_real
+    y: symbol_real
+  functions:
+    diff: symbolic_diff
+    sin: symbolic_sin
+    cos: symbolic_cos
+    subs: symbolic_subs
+    evalf: symbolic_eval_f64
+benchmarks:
+  - name: trigdiff1
+    description: |
+      This is an example of simple differentation.
+
+      Here we might have lots of text describing possibly algorithmic details and
+      stuff. Note that diff10 makes a very large expression. I wonder if something
+      like markdown should be supported here so that it can render nicely like here
+      is an equation::
+
+          \frac{d}{dx}\sin^5(x)
+    inputs:
+      - e: sin(sin(sin(sin(sin(x)))))
+        x: x
+    time:
+      - name: diff
+        operation: diff(e, x)
+        assert_close: evalf(subs(result, x, 1.0)) == 0.1234
+      - name: diff2
+        operation: diff(e, x)
+        assert_close: evalf(subs(result, x, 1.0)) == 0.1654
+      - name: diff10
+        operation: diff(e, x, 10)
+        assert_close: evalf(subs(result, x, 1.0)) == 0.5678
