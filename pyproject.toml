@@ -1,0 +1,43 @@
+[tool.poetry]
+name = "casbench"
+version = "0.0.1"
+description = "A standard for computer algebra system (CAS) benchmarks"
+authors = ["Sam Brockie <sambrockie@icloud.com>"]
+license = "MIT"
+readme = "README.rst"
+keywords = [
+    "computer algebra system",
+    "benchmark",
+]
+classifiers = [
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+pyyaml = "^6.0"
+pydantic = "^1.10.5"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.2.1"
+black = "^23.1.0"
+mypy = "^1.0.1"
+ruff = "^0.0.253"
+pre-commit = "^3.1.1"
+
+[project.urls]
+"Documentation" = "https://brocksam.github.io/casbench"
+"PyPI" = "https://pypi.org/project/casbench"
+"conda-forge" = "https://anaconda.org/conda-forge/casbench"
+"Source Code" = "https://github.com/brocksam/casbench"
+"Issue Tracker" = "https://github.com/brocksam/casbench/issues"
+
+[tool.ruff]
+select = ["A", "B", "C", "D", "E", "F", "I", "W"]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
