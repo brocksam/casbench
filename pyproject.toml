@@ -36,7 +36,25 @@ pre-commit = "^3.1.1"
 "Issue Tracker" = "https://github.com/brocksam/casbench/issues"
 
 [tool.ruff]
-select = ["A", "B", "C", "D", "E", "F", "I", "W"]
+select = [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "I",
+    "W",
+]
+ignore = [
+    "D203",
+    "D213",
+    "E501",
+]
+line-length = 100
+
+[tool.ruff.isort]
+known-first-party = ["casbench"]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
